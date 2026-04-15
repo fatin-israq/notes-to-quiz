@@ -1,0 +1,12 @@
+.DS_Store
+.env
+.env.*
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+*.log
+venv/
+.vscode/
+.idea/
+.streamlit/
