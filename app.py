@@ -1,5 +1,5 @@
 import streamlit as st
-from api_calling import note_generator
+from api_calling import note_generator, audio_transcription
 from PIL import Image
 
 # Title
@@ -63,7 +63,9 @@ if pressed:
         with st.container(border=True):
             st.subheader("Audio Transcription")
 
-            st.text("Note will be shown here")
+            with st.spinner("AI is transcripting the audio"):
+                audio_transcript = audio_transcription(generated_notes)
+                st.audio(audio_transcript)
 
         # Note
         with st.container(border=True):
