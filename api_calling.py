@@ -14,7 +14,7 @@ client = genai.Client(api_key=api_key)
 
 # Note generator
 def note_generator(images):
-    prompt = """Summarize the picture in note format at max 100 words
+    prompt = """Summarize the picture in note format at max 100 words in language modern Bangla with English used in it to sound more natural
     Make sure to add necessary markdown to differentiate different section"""
 
     response = client.models.generate_content(
@@ -26,7 +26,7 @@ def note_generator(images):
 
 # Audio Transcription
 def audio_transcription(text):
-    speech = gTTS(text, lang="en", slow=False)
+    speech = gTTS(text, lang="bn", slow=False)
     audio_buffer = io.BytesIO()
     speech.write_to_fp(audio_buffer)
     return audio_buffer

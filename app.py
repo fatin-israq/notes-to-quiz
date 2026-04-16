@@ -64,6 +64,13 @@ if pressed:
             st.subheader("Audio Transcription")
 
             with st.spinner("AI is transcripting the audio"):
+                
+                # cleaning some markdown
+                generated_notes = generated_notes.replace("#", "")
+                generated_notes = generated_notes.replace("*", "")
+                generated_notes = generated_notes.replace("-", "")
+                generated_notes = generated_notes.replace("`", "")
+
                 audio_transcript = audio_transcription(generated_notes)
                 st.audio(audio_transcript)
 
