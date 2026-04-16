@@ -1,5 +1,5 @@
 import streamlit as st
-from api_calling import note_generator, audio_transcription
+from api_calling import note_generator, audio_transcription, quiz_generator
 from PIL import Image
 
 # Title
@@ -78,4 +78,6 @@ if pressed:
         with st.container(border=True):
             st.subheader(f"Quiz ({selected_option})")
 
-            st.text("Quizzes will be shown here")
+            with st.spinner("Quiz is being prepared"):
+                quiz = quiz_generator(pil_images, selected_option)
+                st.markdown(quiz)
